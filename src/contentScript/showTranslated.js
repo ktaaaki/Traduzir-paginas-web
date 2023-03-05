@@ -244,6 +244,7 @@ Promise.all([twpConfig.onReady(), getTabHostName()]).then(function (_) {
     } else {
       do {
         const nodeName = node.nodeName.toLowerCase();
+        if (node instanceof Element && node.classList.contains("math-container")) return;
         if (htmlTagsNoTranslate.indexOf(nodeName) !== -1) return;
         if (
           htmlTagsInlineText.indexOf(nodeName) === -1 &&
