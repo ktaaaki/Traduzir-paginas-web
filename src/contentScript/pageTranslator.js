@@ -377,7 +377,7 @@ Promise.all([twpConfig.onReady(), getTabHostName()]).then(function (_) {
     mutations.forEach((mutation) => {
       mutation.addedNodes.forEach((addedNode) => {
         const nodeName = addedNode.nodeName.toLowerCase();
-        if (!(addedNode instanceof Element && addedNode.classList.contains("math-container"))) {
+        if (!(addedNode instanceof Element && (addedNode.classList.contains("math-container") || addedNode.classList.contains("MathJax")))) {
         if (htmlTagsNoTranslate.indexOf(nodeName) == -1) {
           if (htmlTagsInlineText.indexOf(nodeName) == -1) {
             if (htmlTagsInlineIgnore.indexOf(nodeName) == -1) {
@@ -485,6 +485,7 @@ Promise.all([twpConfig.onReady(), getTabHostName()]).then(function (_) {
           if (
             htmlTagsInlineIgnore.indexOf(nodeName) !== -1 ||
             node.classList.contains("math-container") ||
+            node.classList.contains("MathJax") ||
             htmlTagsNoTranslate.indexOf(nodeName) !== -1 ||
             node.classList.contains("notranslate") ||
             node.getAttribute("translate") === "no" ||
