@@ -196,7 +196,7 @@ chrome.runtime.onInstalled.addListener((details) => {
 function resetPageAction(tabId, forceShow = false) {
   if (twpConfig.get("translateClickingOnce") === "yes" && !forceShow) {
     chrome.pageAction.setPopup({
-      popup: null,
+      popup: "",
       tabId,
     });
   } else {
@@ -217,7 +217,7 @@ function resetPageAction(tabId, forceShow = false) {
 function resetBrowserAction(forceShow = false) {
   if (twpConfig.get("translateClickingOnce") === "yes" && !forceShow) {
     chrome.browserAction.setPopup({
-      popup: null,
+      popup: "",
     });
   } else {
     if (twpConfig.get("useOldPopup") === "yes") {
